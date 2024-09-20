@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLoaderData, useNavigate } from 'react-router-dom'
-import foodImg from '../assets/foodRecipe.png'
 import { BsStopwatchFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
