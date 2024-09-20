@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import foodRecipe from '../assets/foodRecipe.png'
+import foodrecipe from "../assets/foodrecipe.png"
 import RecipeItems from '../components/RecipeItems'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../components/Modal'
@@ -28,7 +28,7 @@ export default function Home() {
                     <button onClick={addRecipe}>Share your recipes</button>
                 </div>
                 <div className='right'>
-                    <img src={foodRecipe} width="320px" height="300px"></img>
+                    <img src={foodrecipe} width="320px" height="300px"></img>
                 </div>
             </section>
                         {(isOpen) && <Modal onClose={() => setIsOpen(false)}><InputForm setIsOpen={() => setIsOpen(false)} /></Modal>}
