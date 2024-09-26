@@ -1,0 +1,1 @@
+export const apiUrl = import.meta.env.VITE_API_CONFIG === 'production' ? 'https://recipe-sharing-back-end.onrender.com/' : 'http://localhost:8000/'
