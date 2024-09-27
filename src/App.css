@@ -24,6 +24,9 @@
   font-size: 1.5rem;
 }
 
+  
+
+
 /* Links section */
 .nav-links {
   list-style: none;
@@ -40,6 +43,8 @@
 /* Hide the menu toggle by default (desktop view) */
 .menu-toggle {
   display: none;
+  left: 10px;
+
 }
 
 /* Responsive styles */

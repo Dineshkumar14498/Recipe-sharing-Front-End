@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <p>&copy; {new Date().getFullYear()} Tastyvault All rights reserved.</p>
-      
+
       <div className="social-media">
         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
           <FaFacebook />

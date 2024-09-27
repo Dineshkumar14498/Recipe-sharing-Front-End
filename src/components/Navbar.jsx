@@ -8,27 +8,30 @@ export default function Navbar() {
   let token = localStorage.getItem("token")
   const [isLogin, setIsLogin] = useState(token ? false : true)
   let user = JSON.parse(localStorage.getItem("user"))
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false) // State to control the modal
+
+
 
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen) // Toggle the menu open state
   }
 
 
   useEffect(() => {
-    setIsLogin(token ? false : true)
+    setIsLogin(token ? false : true) // Update login state based on token presence
   }, [token])
 
   const checkLogin = () => {
     if (token) {
       localStorage.removeItem("token")
       localStorage.removeItem("user")
-      setIsLogin(true)
+      setIsLogin(true) // Log the user out
 
     }
     else {
-      setIsOpen(true)
+      setIsOpen(true) // Open the login modal if the user is not logged in
+
     }
   }
 
@@ -45,7 +48,7 @@ export default function Navbar() {
 
           {/* Toggle button for small screens */}
           <button className="menu-toggle" onClick={toggleMenu}>
-            ☰
+           ☰
           </button>
 
           <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
