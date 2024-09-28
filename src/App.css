@@ -9,75 +9,77 @@
   
 }
 
+/* General Styles */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-/* Basic navbar styles */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: #333;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
 }
 
-.logo h2 {
-  color: white;
+.navbar-logo {
   font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: auto;
 }
 
-  
+/* Navbar Toggle */
+.navbar-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
-
-/* Links section */
+/* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
-.nav-links li a {
-  color: white;
+/* Individual Link Styles */
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
   text-decoration: none;
-  font-size: 1rem;
+  color: #f7f5f5;
 }
 
-/* Hide the menu toggle by default (desktop view) */
-.menu-toggle {
-  display: none;
-  left: 10px;
-
+/* Login Logout Text */
+.login {
+  cursor: pointer;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
+    justify-content: center;
+    align-items: center;
     top: 60px;
+    left: 0;
     right: 0;
-    background-color: #333;
-    width: 100%;
-    text-align: center;
+    background-color: rgb(5, 5, 5);
+    padding: 2rem 0;
+    z-index: 10;
   }
 
   .nav-links.open {
     display: flex;
-  }
-
-  .nav-links li {
-    padding: 1rem 0;
-    border-top: 1px solid #444;
-  }
-
-  .menu-toggle {
-    display: block;
-    background: none;
-    color: white;
-    font-size: 2rem;
-    border: none;
-    cursor: pointer;
-    padding-left: 10px;
-
   }
 }
 
