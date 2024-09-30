@@ -5,7 +5,7 @@ import { FaHeart } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import axios from 'axios';
-import { apiUrl } from '../api';
+import {apiUrl} from '../api'
 
 export default function RecipeItems() {
     const recipes = useLoaderData()
@@ -21,7 +21,7 @@ export default function RecipeItems() {
     }, [recipes])
 
     const onDelete = async (id) => {
-        await axios.delete(apiUrl + `recipe/${id}`)
+        await axios.delete(apiUrl +`recipe/${id}`)
             .then((res) => console.log(res))
         setAllRecipes(recipes => recipes.filter(recipe => recipe._id !== id))
         let filterItem = favItems.filter(recipe => recipe._id !== id)
@@ -42,7 +42,7 @@ export default function RecipeItems() {
                     allRecipes?.map((item, index) => {
                         return (
                             <div key={index} className='card'onDoubleClick={()=>navigate(`/recipe/${item._id}`)}>
-                                <img src={apiUrl +`images/${item.coverImage}`} width="120px" height="100px"></img>
+                                <img src={apiUrl + `images/${item.coverImage}`} width="120px" height="100px"></img>
                                 <div className='card-body'>
                                     <div className='title'>{item.title}</div>
                                     <div className='icons'>

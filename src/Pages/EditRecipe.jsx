@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { apiUrl } from '../api'
+import {apiUrl} from '../api'
 
 export default function EditRecipe() {
     const [recipeData, setRecipeData] = useState({})
@@ -31,7 +31,7 @@ export default function EditRecipe() {
     const onHandleSubmit = async (e) => {
         e.preventDefault()
         console.log(recipeData)
-        await axios.put(apiUrl + `recipe/${id}`, recipeData,{
+        await axios.put( apiUrl + `recipe/${id}`, recipeData,{
             headers:{
                 'Content-Type':'multipart/form-data',
                 'authorization':'bearer '+localStorage.getItem("token")
