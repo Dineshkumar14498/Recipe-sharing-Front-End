@@ -31,7 +31,7 @@ export default function Navbar() {
     return (
         <>
             <header>
-                <h2>Food Blog</h2>
+                <h2>TastyVault</h2>
                 <button className="toggle-btn" onClick={toggleMenu}>
                     &#9776;
                 </button>
