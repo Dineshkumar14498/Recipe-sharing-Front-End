@@ -1,127 +1,130 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
 /* Home Section */
 .home {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 100px;
+  background-color: #f9f9f9;
 }
 
-.left {
+.home .left {
   flex: 1;
-  padding-right: 20px;
+  margin-right: 20px;
 }
 
-.left h1 {
+.home .right img {
+  max-width: auto;
+  height: auto;
+}
+h1 {
   font-size: 3rem;
-  color: #333;
+  margin: 0 0 10px;
 }
 
-.left h5 {
-  font-size: 1.1rem;
-  color: #555;
-  margin: 20px 0;
-  line-height: 1.6;
+h5 {
+  font-size: 1.5rem;
+  color: #666;
+  margin: 0 0 20px;
 }
 
 button {
   padding: 10px 20px;
-  background-color: #28a745;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #ff6347;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #218838;
+/* Search & Filter Container */
+.search-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+  gap: 10px;
 }
 
-.right img {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
+.search-filter-container input,
+.search-filter-container select,
+.search-filter-container button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.search-filter-container button {
+  background-color: #ff6347;
+  color: white;
+  flex: none;
 }
 
 
-/* Recipe Section */
-.recipe {
-  padding: 20px;
-}
+/* Media Queries for Responsiveness */
 
-/* Responsive Adjustments */
-@media screen and (max-width: 1024px) {
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
   .home {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
+      flex-direction: column;
+      align-items: flex-start;
   }
 
-  .left {
-    padding-right: 0;
-    margin-bottom: 20px;
+  .home .left, .home .right {
+      margin: 0;
   }
 
-  .left h1 {
-    font-size: 2.5rem;
+  h1 {
+      font-size: 2rem;
   }
 
-  .left h5 {
-    font-size: 1rem;
+  h5 {
+      font-size: 1.2rem;
   }
 
-  button {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .home {
-    padding: 15px;
+  .search-filter-container {
+      flex-direction: column;
   }
 
-  .left h1 {
-    font-size: 2rem;
+  .search-filter-container input,
+  .search-filter-container select,
+  .search-filter-container button {
+      width: 100%;
+      margin-bottom: 10px;
   }
 
-  .left h5 {
-    font-size: 0.9rem;
-  }
-
-  button {
-    font-size: 13px;
-    padding: 8px 12px;
-  }
-
-  .right img {
-    max-width: 250px;
+  .recipe {
+      grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .home {
-    padding: 10px;
+/* For mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .home .left {
+      margin-bottom: 20px;
   }
 
-  .left h1 {
-    font-size: 1.8rem;
+  h1 {
+      font-size: 1.8rem;
   }
 
-  .left h5 {
-    font-size: 0.8rem;
+  h5 {
+      font-size: 1rem;
   }
 
-  button {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .right img {
-    max-width: 200px;
+  .recipe .card {
+      width: 100%;
   }
 }
 
@@ -154,4 +157,5 @@ button:hover {
 .social-media a:hover {
   color: #4CAF50; /* Change color on hover */
 }
+
 
