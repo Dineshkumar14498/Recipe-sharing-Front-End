@@ -4,13 +4,13 @@ import RecipeItems from '../components/RecipeItems';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../components/Modal';
 import InputForm from '../components/InputForm';
-import axios from 'axios';  
-import { apiUrl } from '../api';  
+import axios from 'axios';
+import { apiUrl } from '../api';
 
 export default function Home() {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
-    const [recipes, setRecipes] = useState([]);  
+    const [recipes, setRecipes] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [cuisine, setCuisine] = useState('');
     const [dietaryPref, setDietaryPref] = useState('');
@@ -25,12 +25,13 @@ export default function Home() {
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
-                const response = await axios.get(apiUrl + '/recipes');
+                const response = await axios.get(apiUrl + 'recipes');
                 setRecipes(response.data);
             } catch (error) {
                 console.error('Error fetching recipes:', error);
             }
         };
+
         fetchRecipes();
     }, []);
 

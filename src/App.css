@@ -491,32 +491,34 @@ button:hover {
 }
 
 .outer-container {
-  max-width: 600px;
-  margin: auto;
   padding: 20px;
+  max-width: 600px; /* Adjust as needed */
+  margin: auto;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
 }
 
+.title {
+  margin-top: 10px;
+  font-size: 2em;
+  text-align: center;
+  color: #333;
+}
+
 .profile {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.title {
-  margin: 10px 0;
-}
-
-.ingredients,
-.instructions {
-  margin-top: 15px;
+.ingredients, .instructions {
+  margin: 20px 0;
 }
 
 .ingredients ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 .card-container {
