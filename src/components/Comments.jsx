@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { apiUrl } from '../api';
+import { apiUrl } from '../api';  // Base API URL
 
 export default function Comments({ recipeId }) {
     const [comments, setComments] = useState([]);
-    const [newComment, setNewComment] = useState("");
+    const [newComment, setNewComment] = useState('');
+    const [rating, setRating] = useState(0);
 
     useEffect(() => {
         fetchComments();
@@ -12,21 +13,26 @@ export default function Comments({ recipeId }) {
 
     const fetchComments = async () => {
         try {
-            const res = await axios.get(`${apiUrl}recipe/${recipeId}/comments`);
+            const res = await axios.get(apiUrl + `/recipe/${recipeId}/comments`);
             setComments(res.data);
         } catch (error) {
-            console.error("Error fetching comments:", error);
+            console.error('Error fetching comments:', error);
         }
     };
 
     const submitComment = async () => {
-        if (newComment.trim() !== "") {
+        if (newComment.trim() !== '' && rating > 0) {
             try {
-                await axios.post(`${apiUrl}recipe/${recipeId}/comments`, { comment: newComment });
-                setNewComment(""); // Reset comment input
-                fetchComments(); // Fetch updated comments
+                await axios.post(apiUrl + `/recipe/${recipeId}/comments`, {
+                    comment: newComment,
+                    rating: parseInt(rating, 10),
+                    user: 'User1'  // Replace with actual user authentication
+                });
+                setNewComment('');
+                setRating(0);
+                fetchComments();  // Fetch updated comments after submission
             } catch (error) {
-                console.error("Error submitting comment:", error);
+                console.error('Error submitting comment:', error);
             }
         }
     };
@@ -36,7 +42,9 @@ export default function Comments({ recipeId }) {
             <h3>Comments</h3>
             <ul>
                 {comments.map((comment, idx) => (
-                    <li key={idx}>{comment.comment}</li>
+                    <li key={idx}>
+                        {comment.comment} - {comment.rating}/5
+                    </li>
                 ))}
             </ul>
             <div className='comment-input'>
@@ -45,6 +53,14 @@ export default function Comments({ recipeId }) {
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
                     placeholder='Add a comment...'
+                />
+                <input
+                    type='number'
+                    value={rating}
+                    onChange={(e) => setRating(e.target.value)}
+                    placeholder='Rate (1-5)'
+                    min='1'
+                    max='5'
                 />
                 <button onClick={submitComment}>Submit</button>
             </div>

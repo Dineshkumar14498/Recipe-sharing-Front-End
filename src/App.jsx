@@ -41,17 +41,26 @@ const getRecipe=async({params})=>{
   return recipe
 }
 
-const router=createBrowserRouter([
-  {path:"/",element:<MainNavigation/>,children:[
-    {path:"/",element:<Home/>,loader:getAllRecipes},
-    {path:"/myRecipe",element:<Home/>,loader:getMyRecipes},
-    {path:"/favRecipe",element:<Home/>,loader:getFavRecipes},
-    {path:"/addRecipe",element:<AddFoodRecipe/>},
-    {path:"/editRecipe/:id",element:<EditRecipe/>},
-    {path:"/recipe/:id",element:<RecipeDetails/>,loader:getRecipe}
-  ]}
- 
-])
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainNavigation />,
+    children: [
+      { path: "/", element: <Home />, loader: getAllRecipes },
+      { path: "/myRecipe", element: <Home />, loader: getMyRecipes },
+      { path: "/favRecipe", element: <Home />, loader: getFavRecipes },
+      { path: "/addRecipe", element: <AddFoodRecipe /> },
+      { path: "/editRecipe/:id", element: <EditRecipe /> },
+      { 
+        path: "/recipe/:id", 
+        element: <RecipeDetails />, 
+        loader: getRecipe // This loader fetches recipe details, including comments
+      }
+    ]
+  }
+]);
+
+
 
 export default function App() {
   return (

@@ -11,6 +11,8 @@ import Comments from '../components/Comments'
 export default function RecipeItems() {
     const recipes = useLoaderData()
     const [allRecipes, setAllRecipes] = useState()
+      const [comments, setComments] = useState([]);
+
     let path = window.location.pathname === "/myRecipe";
     let favItems = JSON.parse(localStorage.getItem("fav")) ?? [];
     const [isFavRecipe, setIsFavRecipe] = useState(false);
